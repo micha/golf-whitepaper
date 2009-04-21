@@ -1,5 +1,14 @@
 \section{Executive Summary}
 
+The Golf web application developent stack was concieved in response
+to certain well-known problems with current web application
+architectures:
+
+\begin{itemize}
+\end{itemize}
+
+\section{Introduction}
+
 In the past few years the web development industry has matured
 greatly.  An increased emphasis on professionalism, adherence to
 best-practices, industry standardization, and steadily expanding
@@ -32,15 +41,51 @@ out there, because there are many. But in terms of overall
 organization, serverside scripting involves limitations that are
 significant and should be noted.
 
+With a completely clientside presentation layer, however, the boundary
+between server and client is pushed way back. The server would have
+absolutely no responsibility for the presentation layer, whatsoever.
+Under this scheme the server would only be required to serve up the
+static javascripts, and provide some kind of web services backend for
+data and business logic. Everything else would be conducted in the
+client's browser using javascript.
+
 \subsection{What's Different About Golf?}
 
 The Golf stack attacks this problem head-on. The basic enabling
 technology it provides is a fully-functioning javascript proxy
-capability. The Golf application server can automatically and 
-transparently detect when a browser does not have javascript, or
-if javascript is disabled, and provide the complete page in pure
-HTML, with special hooks to proxy events. This is covered in
-detail in Section \ref{sec:howitworks}.
+capability. The Golf application server can automatically and
+transparently detect when a browser does not have javascript, or if
+javascript is disabled, and provide the complete page in pure HTML,
+with special hooks to proxy events. This is covered in detail in
+Section \ref{sec:howitworks}.
 
-This javascript proxying capability is the foundation that frees
-the developer to think about web applications in a whole new way.
+This javascript proxying capability is the foundation that frees the
+developer to think about web applications in a whole new way.  Once
+the dependence on serverside scripting (to provide the main site
+functionality, according to principles of progressive-enhancement) is
+removed, the possibility and power of true clientside architectures
+become attainable.
+
+Golf provides precisely such a framework. Starting from an empty
+document and the Golf javascript clientside MVC framework, the
+application's javascript controller instantiates views made up of Golf
+"components" and connects them up to clientside javascript REST client
+models. The models use AJAX to interact with the business logic and
+data layers via an independent RESTful web service running on the
+server. At some point the controller will insert the Golf "component"
+into the DOM using jQuery, just as a normal DOM element would be.
+
+These components are little modules, encapsulating DOM structure, CSS
+styling, static resources, and dynamic javascript behaviors.
+Successful encapsulation makes an object-oriented approach feasible
+for web applications.
+
+\subsection{Incidental Benefits}
+
+Since Golf is a fully clientside framework, only the javascripts
+themselves are served to the client. No serverside processing is
+needed in a Golf application. This means that the server simply
+spends all day just delivering static content. Of course, static
+content can be offloaded onto a content delivery network, such as
+Amazon's CloudFront, for example.
+
