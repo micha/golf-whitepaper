@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+
+% for wrapped floats and figures
+\usepackage{wrapfig}
+
+% for urls and links in pdf
+\usepackage{hyperref}
+
+% references and citations (bibliography even)
+\usepackage[super]{natbib}
+
+% set 8.5" x 11" letter size paper
+\usepackage[letterpaper]{geometry}
+
+%for colored text / textboxes
+\usepackage{color}
+
+% use helvetica
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{helvet}
+\renewcommand*\familydefault{\sfdefault}
+
+% paragraph settings
+\setlength{\parskip}{0.5cm plus4mm minus0mm}
+\setlength{\parindent}{0in}
+
+% fancy headers
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+\fancyhf{}
+\fancyhead[CO]{Minimo Software, LLC}
+\fancyfoot[CO]{\thepage}
+
+% enable image importing
+\usepackage{graphicx}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\renewcommand\thepage{}
+\input{./title.tex}
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\renewcommand\thepage{\arabic{page}}
+
+\pagestyle{fancyplain}
+\setcounter{page}{1}
+
+\input{body}
+
+\end{document}

@@ -1,0 +1,46 @@
+\section{Executive Summary}
+
+In the past few years the web development industry has matured
+greatly.  An increased emphasis on professionalism, adherence to
+best-practices, industry standardization, and steadily expanding
+Internet use, combined with advances in the capabilities of popular
+web browsers has fueled a new era for web developers.
+
+\subsection{The Problem}
+
+Central to this new professionalism is the importance placed on the
+application's responsiveness, dynamic content, making use of web
+services APIs asynchronously, AJAX, and all manner of clientside
+technologies. At the same time, however, the overarching requirements
+of search engine optimization and accessibility can not be neglected
+by any serious developer.
+
+Correspondingly, as the capabilities, size, and scope of web
+applications grows, organization and architecture issues become
+critical. Unfortunately, many of the standard best-practices that are
+successfully used by the software industry as a whole are not entirely
+feasible in the domain of the web application. The particular
+difficulties of web development (i.e. the dependence on serverside
+scripting to generate HTML output, the stateless nature of HTTP, and
+the fact that javascript-disabled browsers must still be supported, to
+name a few), have made a coherent, object-oriented, modular web
+development architecture a rather elusive pie-in-the-sky kind of
+ideal.
+
+That is not to say that there are no good web development frameworks
+out there, because there are many. But in terms of overall
+organization, serverside scripting involves limitations that are
+significant and should be noted.
+
+\subsection{What's Different About Golf?}
+
+The Golf stack attacks this problem head-on. The basic enabling
+technology it provides is a fully-functioning javascript proxy
+capability. The Golf application server can automatically and 
+transparently detect when a browser does not have javascript, or
+if javascript is disabled, and provide the complete page in pure
+HTML, with special hooks to proxy events. This is covered in
+detail in Section \ref{sec:howitworks}.
+
+This javascript proxying capability is the foundation that frees
+the developer to think about web applications in a whole new way.
